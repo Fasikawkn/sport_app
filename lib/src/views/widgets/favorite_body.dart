@@ -42,13 +42,27 @@ class _FavoriteBodyState extends State<FavoriteBody> {
   Widget build(BuildContext context) {
     return Consumer<FavoriteContorller>(builder: (context, model, child) {
       if (model.favGameResponse.status == Status.loading) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
+        return const  Padding(
+
+            padding:  EdgeInsets.only(top: 50.0),
+            child:  Center(
+              child: CircularProgressIndicator(
+                color: kYellowColor,
+              ),
+            ),
+          );
       } else if (model.favGameResponse.status == Status.completed) {
         debugPrint("Favorite Game is ${model.favGameResponse.data}");
         List<Map<String, dynamic>> _favGame = model.favGameResponse.data;
-        return SingleChildScrollView(
+        return _favGame.isEmpty?const Center(
+          child: Text(
+           "No Favorites yet!",
+           style: TextStyle(
+             color: Colors.white
+           ),
+          ),
+        )
+        : SingleChildScrollView(
           child: Column(
               children: _favGame
                   .map(

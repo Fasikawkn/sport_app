@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          _currentIndex == 0 ? "22.12" : "Favorites",
+          _currentIndex == 0 ? getDate() : "Favorites",
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,

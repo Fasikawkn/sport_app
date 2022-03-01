@@ -23,9 +23,13 @@ class _HomeBodyState extends State<HomeBody> {
     return SingleChildScrollView(
       child: Consumer<LiveGameModel>(builder: (context, model, child) {
         if (model.liveGameResponse.status == Status.loading) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: kYellowColor,
+          return const  Padding(
+
+            padding:  EdgeInsets.only(top: 50.0),
+            child:  Center(
+              child: CircularProgressIndicator(
+                color: kYellowColor,
+              ),
             ),
           );
         } else if (model.liveGameResponse.status == Status.completed) {

@@ -39,3 +39,8 @@ String getTeamTitleName(String name) {
     return name;
   }
 }
+
+ String getDate() {
+    DateTime date = DateTime.now();
+    return "${date.day < 10 ? '0${date.day}' : date.day}.${date.month < 10 ? '0${date.month}' : date.month}";
+  }
